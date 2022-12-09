@@ -3,13 +3,16 @@ package Transport;
 import java.security.Key;
 import java.time.LocalDate;
 
-public class Car {
-    private final String brand;
-    private final String model;
+import static Transport.Bus.validateRefillType;
+import static Transport.Validate.validateString;
+
+public class Car extends Transport {
+    //private final String brand;
+    //private final String model;
     private double engineVolume;
-    private String color;
-    private final int year;
-    private final String country;
+    //private String color;
+    //private final int year;
+    //private final String country;
     private String transmission;
     private final String bodyType;
     private String regNumber;
@@ -18,40 +21,32 @@ public class Car {
     private Key key;
     private Insurance insurance;
 
-    public Car(String brand, String model, double engineVolume,
-               String color, int year, String country, String transmission,
-               String bodyType, String regNumber, int numberOfSeats,
-               boolean typeOfRubber, Key key,Insurance insurance) {
-        if (brand == null) {
-            this.brand = "default";
-        } else {
-            this.brand = brand;
-        }
 
-
-        if (model == null) {
-            this.model = "default";
-        } else {
-            this.model = model;
-        }
+    public  Car(String brand,
+                            String model,
+                            double engineVolume,
+                            String color,
+                            int year,
+                            String country,
+                            String transmission,
+                            String bodyType,
+                            String regNumber,
+                            int numberOfSeats,
+                            boolean typeOfRubber,
+                            Integer maxSpeed,
+                            String refillType){
+        super(brand, model, year, country, color, maxSpeed);
 
         if (engineVolume <= 0) {
             this.engineVolume = 1.5;
         } else {
             this.engineVolume = engineVolume;
         }
-        if (color == null) {
-            this.color = "white";
-        } else {
-            this.color = color;
-        }
-        this.year = year;
         if (transmission == null) {
             this.transmission = "МКПП";
         } else {
             this.transmission = transmission;
         }
-        this.country = country;
         if (regNumber == null) {
             this.regNumber = "x000xx000";
         } else {
@@ -77,14 +72,7 @@ public class Car {
 
     }
 
-    public Car(String brand, String model,
-               double engineVolume, String color, int year, String country) {
-        this(
-                brand, model, engineVolume, color, year, country,
-                "МКПП", "Седан", "x000xx000", 5,
-                true, new Key(),new Insurance());
 
-    }
 
     public double getEngineVolume() {
         return engineVolume;
@@ -94,13 +82,8 @@ public class Car {
         this.engineVolume = engineVolume;
     }
 
-    public String getColor() {
-        return color;
-    }
 
-    public void setColor(String color) {
-        this.color = color;
-    }
+
 
     public String getTransmission() {
         return transmission;
@@ -135,21 +118,9 @@ public class Car {
         this.typeOfRubber = typeOfRubber;
     }
 
-    public String getBrand() {
-        return brand;
-    }
 
-    public String getModel() {
-        return model;
-    }
 
-    public int getYear() {
-        return year;
-    }
 
-    public String getCountry() {
-        return country;
-    }
 
     public String getBodyType() {
         return bodyType;
@@ -237,6 +208,8 @@ public class Car {
                 this.number = number;
             }
         }
+        void refill(String fuel) {
+            System.out.println("the bus will be refueled with"+validateRefillType(fuel));}
 
         public Insurance() {
             this(null, 10000, null);
@@ -272,21 +245,35 @@ public class Car {
     }
 
     @Override
+    void refill(String fuel) {
+        System.out.println("the train will be refueled with"+validateRefillType(fuel));
+    }
+    public static String validateRefillType(String value) {
+        if (validateString(value) && value.equals("petrol")) {
+            return value;
+        } else {
+            return "petrol";
+        }
+    }
+
+    @Override
     public String toString() {
         return "Car{" +
-                "brand='" + brand + '\'' +
-                ", model='" + model + '\'' +
-                ", engineVolume=" + engineVolume +
-                ", color='" + color + '\'' +
-                ", year=" + year +
-                ", country='" + country + '\'' +
+                "engineVolume=" + engineVolume +
                 ", transmission='" + transmission + '\'' +
                 ", bodyType='" + bodyType + '\'' +
                 ", regNumber='" + regNumber + '\'' +
                 ", numberOfSeats=" + numberOfSeats +
                 ", typeOfRubber=" + typeOfRubber +
                 ", key=" + key +
-                ", insurance=" + insurance +
+                ", insurance=" + insurance +"brand='" + getBrand() + '\'' +
+                ", model='" + getModel() + '\'' +
+                ", year=" + getYear() +
+                ", country='" + getCountry() + '\'' +
+                ", color='" + getColor() + '\'' +
+                ", maxSpeed=" + getMaxSpeed() +
+
+
                 '}';
     }
 }
