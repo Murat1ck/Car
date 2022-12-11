@@ -1,10 +1,11 @@
 package Transport;
 
-import static Transport.Bus.validateRefillType;
-import static Transport.Validate.validateInteger;
-import static Transport.Validate.validateString;
+import Racing.Transport;
 
-public class Train extends Transport{
+import static Validate.validateInteger;
+import static Validate.validateString;
+
+public class Train extends Transport {
     private Integer travelTime;
     private String departure;
     private String destination;

@@ -18,15 +18,24 @@ public class PassengerCars extends Transport implements Competing {
     }
 
 
+    @Override
+    public void refill(String fuel) {
+
+    }
 
     @Override
-    void start() {
+    public void start() {
         System.out.println("Car started");
     }
 
     @Override
-    void finish() {
+    public void finish() {
         System.out.println("Car finished");
+    }
+
+    @Override
+    public boolean diagnostic() {
+        return false;
     }
 
     @Override

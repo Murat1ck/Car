@@ -18,7 +18,7 @@ public class Trucks extends Transport implements Competing{
     }
 
     @Override
-    void refill(String fuel) {
+    public void refill(String fuel) {
 
     }
 
@@ -30,6 +30,11 @@ public class Trucks extends Transport implements Competing{
     @Override
     public void finish() {
         System.out.println("Truck finished");
+    }
+
+    @Override
+    public boolean diagnostic() {
+        return false;
     }
 
     @Override

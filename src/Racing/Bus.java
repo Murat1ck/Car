@@ -16,14 +16,26 @@ public class Bus extends Transport implements Competing{
         this.maxSpeed = maxSpeed;
         this.bestLapSpeed = bestLapSpeed;
     }
+
     @Override
-    void start() {
+    public void refill(String fuel) {
+
+    }
+
+    @Override
+    public void start() {
         System.out.println("Bus started");
     }
 
     @Override
-    void finish() {
+    public void finish() {
         System.out.println("Bus finished");
+    }
+
+    @Override
+    public boolean diagnostic() {
+        System.out.println("Автобус" +getBrand()+" " + getModel() + "в диагностике не требуется");
+        return true;
     }
 
     @Override
