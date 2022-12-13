@@ -1,6 +1,6 @@
 package Racing;
 
-public class DriverA<T extends PassengerCars> extends Driver{
+public class DriverA<T extends PassengerCars> extends Driver<T> {
     public DriverA(String name,
                    boolean license,
                    Integer experience) {

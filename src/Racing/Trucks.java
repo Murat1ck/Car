@@ -34,7 +34,14 @@ public class Trucks extends Transport implements Competing{
 
     @Override
     public boolean diagnostic() {
+
         return false;
+    }
+
+    @Override
+    public void repair() {
+        System.out.println("Truck" + getBrand() + " " + getModel() + " repair!");
+
     }
 
     @Override
