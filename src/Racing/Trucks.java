@@ -1,6 +1,7 @@
 package Racing;
 
 public class Trucks extends Transport implements Competing{
+    private WeightType weightType;
     private  final Integer pitStopTime;
     private final Integer maxSpeed;
     private final Integer bestLapSpeed;
@@ -8,6 +9,7 @@ public class Trucks extends Transport implements Competing{
     public Trucks(String brand,
                String model,
                Integer enginePower,
+                  WeightType weightType,
                Integer pitStopTime,
                Integer maxSpeed,
                Integer bestLapSpeed) {
@@ -15,10 +17,19 @@ public class Trucks extends Transport implements Competing{
         this.pitStopTime = pitStopTime;
         this.maxSpeed = maxSpeed;
         this.bestLapSpeed = bestLapSpeed;
+        this.weightType = weightType;
+    }
+
+    public WeightType getWeightType() {
+        return weightType;
+    }
+
+    public void setWeightType(WeightType weightType) {
+        this.weightType = weightType;
     }
 
     @Override
-    void refill(String fuel) {
+    public void refill(String fuel) {
 
     }
 
