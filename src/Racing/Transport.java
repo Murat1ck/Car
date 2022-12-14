@@ -36,6 +36,8 @@ public abstract class Transport {
     public abstract void start();
     public abstract void finish();
 
+    public abstract boolean diagnostic();
+
     @Override
     public String toString() {
         return "Transport{" +

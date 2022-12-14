@@ -1,8 +1,10 @@
 package Transport;
 
-import static Transport.Validate.validateString;
+//import static Validate.validateString;
 
-public abstract class Transport {
+import static Racing.Validate.validateString;
+
+public abstract class Transport1 {
     private final String brand;
     private final String model;
     private final int year;
@@ -11,7 +13,7 @@ public abstract class Transport {
     private Integer maxSpeed;
     private String fuel;
 
-    public Transport(String brand, String model, int year, String country, String color, Integer maxSpeed) {
+    public Transport1(String brand, String model, int year, String country, String color, Integer maxSpeed) {
         this.brand = validateCarParameters(brand);
         this.model = validateCarParameters(model);
         this.year = validateYear(year);

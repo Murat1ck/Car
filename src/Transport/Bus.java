@@ -1,19 +1,23 @@
 package Transport;
 
-import static Transport.Validate.validateString;
+import Racing.Transport;
 
-public class Bus extends Transport{
+import static Racing.Validate.validateString;
+
+//import static Validate.validateString;
+
+public class Bus extends Transport {
     public Bus(String brand,
                String model,
                Integer year,
                String country,
                String color,
                Integer maxSpeed){
-        super(brand, model, year, country, color, maxSpeed);
+        super(brand, model, maxSpeed);
     }
 
     @Override
-    void refill(String fuel) {
+    public void refill(String fuel) {
         System.out.println("the bus will be refueled with"+validateRefillType(fuel));}
 
     public static String validateRefillType(String value) {
@@ -22,5 +26,15 @@ public class Bus extends Transport{
         }else {
             return "diesel";
         }
+    }
+
+    @Override
+    public void start() {
+
+    }
+
+    @Override
+    public void finish() {
+
     }
 }

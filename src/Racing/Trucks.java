@@ -44,6 +44,11 @@ public class Trucks extends Transport implements Competing{
     }
 
     @Override
+    public boolean diagnostic() {
+        return false;
+    }
+
+    @Override
     public void getPitStop() {
         System.out.println("Pit-stop" + pitStopTime);
 

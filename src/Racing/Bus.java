@@ -20,14 +20,17 @@ public class Bus extends Transport implements Competing{
         this.capacity = capacity;
     }
 
-    public Capacity getCapacity() {
-        return capacity;
-    }
+//<<<<<<< hw5
+=======
+   // public Capacity getCapacity() {
+        //return capacity;
+   // }
 
-    public void setCapacity(Capacity capacity) {
-        this.capacity = capacity;
-    }
+   // public void setCapacity(Capacity capacity) {
+       // this.capacity = capacity;
+    //}
 
+//>>>>>>> master
     @Override
     public void refill(String fuel) {
 
@@ -41,6 +44,12 @@ public class Bus extends Transport implements Competing{
     @Override
     public void finish() {
         System.out.println("Bus finished");
+    }
+
+    @Override
+    public boolean diagnostic() {
+        System.out.println("Автобус" +getBrand()+" " + getModel() + "в диагностике не требуется");
+        return true;
     }
 
     @Override

@@ -1,10 +1,10 @@
 package Transport;
 
-import java.security.Key;
+import Racing.Transport;
+
 import java.time.LocalDate;
 
-import static Transport.Bus.validateRefillType;
-import static Transport.Validate.validateString;
+import static Validate.validateString;
 
 public class Car extends Transport {
     //private final String brand;
