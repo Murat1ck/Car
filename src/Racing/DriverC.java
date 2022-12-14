@@ -1,5 +1,5 @@
 package Racing;
-public class DriverC<T extends Trucks> extends Driver{
+public class DriverC<T extends Trucks> extends Driver<T> {
     public DriverC(String name,
                    boolean license,
                    Integer experience) {

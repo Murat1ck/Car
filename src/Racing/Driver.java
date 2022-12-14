@@ -2,7 +2,7 @@ package Racing;
 
 import static Racing.Validate.*;
 
-public abstract class Driver {
+public abstract class Driver<T> {
     private  String name;
     private  boolean license;
     private  Integer experience;

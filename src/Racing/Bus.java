@@ -53,6 +53,11 @@ public class Bus extends Transport implements Competing{
     }
 
     @Override
+    public void repair() {
+        System.out.println("Bus" + getBrand() + " " + getModel() + " repair!");
+    }
+
+    @Override
     public void getPitStop() {
         System.out.println("Pit-stop" + pitStopTime);
 
