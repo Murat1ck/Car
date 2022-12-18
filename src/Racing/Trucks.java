@@ -1,23 +1,34 @@
 package Racing;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 public class Trucks extends Transport implements Competing{
     private WeightType weightType;
     private  final Integer pitStopTime;
     private final Integer maxSpeed;
     private final Integer bestLapSpeed;
+    private final Set<Mechanic<Trucks>> mechanics;
+
+    public Set<Mechanic<Trucks>> getMechanics() {
+        return mechanics;
+    }
 
     public Trucks(String brand,
-               String model,
-               Integer enginePower,
+                  String model,
+                  Integer enginePower,
                   WeightType weightType,
-               Integer pitStopTime,
-               Integer maxSpeed,
-               Integer bestLapSpeed) {
+                  Integer pitStopTime,
+                  Integer maxSpeed,
+                  Integer bestLapSpeed,
+                  Mechanic<Trucks>...mechanics   ) {
         super(brand, model, enginePower);
         this.pitStopTime = pitStopTime;
         this.maxSpeed = maxSpeed;
         this.bestLapSpeed = bestLapSpeed;
         this.weightType = weightType;
+        this.mechanics = new HashSet<>(Arrays.asList(mechanics));
     }
 
     public WeightType getWeightType() {
@@ -52,6 +63,16 @@ public class Trucks extends Transport implements Competing{
     @Override
     public void repair() {
         System.out.println("Truck" + getBrand() + " " + getModel() + " repair!");
+
+    }
+
+    @Override
+    public Set<?> mechanics() {
+        return getMechanics();
+    }
+
+    @Override
+    public void addDriver(DriverA<PassengerCars> petrov) {
 
     }
 

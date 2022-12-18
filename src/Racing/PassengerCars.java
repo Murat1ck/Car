@@ -1,30 +1,30 @@
 package Racing;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
+import static java.util.Arrays.asList;
+
 public class PassengerCars extends Transport implements Competing {
 
-    private TypeOfBody typeOfBody;
     private final Integer pitStopTime;
     private final Integer maxSpeed;
     private final Integer bestLapSpeed;
+    private final Set<Mechanic<PassengerCars>> mechanics;
 
     public PassengerCars(String brand,
                          String model,
                          Integer enginePower,
-                         TypeOfBody typeOfBody,
                          Integer pitStopTime,
-                         Integer maxSpeed) {
+                         Integer maxSpeed,
+                         Integer bestLapSpeed,
+                         Mechanic<PassengerCars>...mechanics) {
         super(brand, model, enginePower);
+        this.mechanics = new HashSet<>(Arrays.asList(mechanics));
         this.pitStopTime = pitStopTime;
         this.maxSpeed = maxSpeed;
         this.bestLapSpeed = bestLapSpeed;
-        this.typeOfBody = typeOfBody;
-    }
-
-    public TypeOfBody getTypeOfBody() {
-        return typeOfBody;
-    }
-    public void setTypeOfBody(TypeOfBody typeOfBody) {
-        this.typeOfBody = typeOfBody;
     }
 
 
@@ -34,14 +34,6 @@ public class PassengerCars extends Transport implements Competing {
     }
 
     @Override
-//<<<<<<< hw5
-//=======
-   // public void refill(String fuel) {
-
-   // }
-
-    //@Override
-//>>>>>>> master
     public void start() {
         System.out.println("Car started");
     }
@@ -60,6 +52,21 @@ public class PassengerCars extends Transport implements Competing {
     public void repair() {
         System.out.println("Машина" + getBrand() + " " + getModel() + " repair!");
     }
+
+    @Override
+    public Set<?> mechanics() {
+        return getMechanics();
+    }
+
+    @Override
+    public void addDriver(DriverA<PassengerCars> petrov) {
+
+    }
+
+    private Set<?> getMechanics() {
+        return getMechanics();
+    }
+
 
     @Override
     public void getPitStop() {
