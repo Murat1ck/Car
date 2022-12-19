@@ -1,39 +1,48 @@
 package Racing;
 
-public class Bus extends Transport implements Competing{
-    private Capacity capacity;
-    private  final Integer pitStopTime;
-    private final Integer maxSpeed;
-    private final Integer bestLapSpeed;
+import java.util.*;
 
+public class Bus extends Transport implements Competing {
+    private DriverC driver;
+    private final Set<Mechanic<Bus>> mechanics;
+
+    //    private Capacity capacity;
+//    private final Integer pitStopTime;
+//    private final Integer maxSpeed;
+//    private final Integer bestLapSpeed;
+//    private final Set<Mechanic<Bus>> mechanics;
     public Bus(String brand,
                String model,
                Integer enginePower,
-               Capacity capacity,
-               Integer pitStopTime,
-               Integer maxSpeed,
-               Integer bestLapSpeed) {
+               DriverC driver,
+               Mechanic<Bus>... mechanics) {
         super(brand, model, enginePower);
-        this.pitStopTime = pitStopTime;
-        this.maxSpeed = maxSpeed;
-        this.bestLapSpeed = bestLapSpeed;
-        this.capacity = capacity;
+        setDriver(driver);
+        this.mechanics = new HashSet<>(Arrays.asList(mechanics));
+
     }
 
-//<<<<<<< hw5
-=======
-   // public Capacity getCapacity() {
-        //return capacity;
-   // }
 
-   // public void setCapacity(Capacity capacity) {
-       // this.capacity = capacity;
+    // public Capacity getCapacity() {
+    //return capacity;
+    // }
+
+    // public void setCapacity(Capacity capacity) {
+    // this.capacity = capacity;
     //}
 
-//>>>>>>> master
+
     @Override
     public void refill(String fuel) {
 
+    }
+
+    public void setDriver(DriverC driver) {
+        this.driver = driver;
+    }
+
+    public DriverC getDriver() {
+        return driver;
     }
 
     @Override
@@ -48,7 +57,7 @@ public class Bus extends Transport implements Competing{
 
     @Override
     public boolean diagnostic() {
-        System.out.println("Автобус" +getBrand()+" " + getModel() + "в диагностике не требуется");
+        System.out.println("Автобус" + getBrand() + " " + getModel() + "в диагностике не требуется");
         return true;
     }
 
@@ -58,21 +67,34 @@ public class Bus extends Transport implements Competing{
     }
 
     @Override
+    public Set<?> mechanics() {
+        return getMechanics();
+    }
+
+    @Override
+    public void addDriver(DriverA<PassengerCars> petrov) {
+
+    }
+
+
+    public Set<Mechanic<Bus>> getMechanics() {
+        return mechanics;
+    }
+
+    @Override
     public void getPitStop() {
-        System.out.println("Pit-stop" + pitStopTime);
 
     }
 
     @Override
     public void getBestLapTime() {
-        System.out.println("best lap" + bestLapSpeed);
+
     }
 
     @Override
     public void getMaxSpeed() {
-        System.out.println("Bus max speed" + maxSpeed);
-    }
 
+    }
 }
 
 
